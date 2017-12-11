@@ -1,0 +1,18 @@
+
+
+#bootstrap machine
+
+curl -O https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
+sudo bash dcos_generate_config.sh --web
+
+
+# coreos ip setup
+
+sudo bash -c 'cat <<EOF > /etc/systemd/network/static.network
+[Match]
+Name=ens192
+[Network]
+Address=10.15.76.213/24
+Gateway=10.15.76.254
+DNS=8.8.8.8
+EOF'
