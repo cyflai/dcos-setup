@@ -1,0 +1,23 @@
+#agent_list:
+#- 10.15.76.211
+#- 10.15.76.212
+#- 10.15.76.213
+# Use this bootstrap_url value unless you have moved the DC/OS installer assets.   
+bootstrap_url: file:///opt/dcos_install_tmp
+customer_key: <customer-key>
+cluster_name: dcos
+exhibitor_storage_backend: static
+master_discovery: static 
+ip_detect_public_filename: ip.sh
+master_list:
+- 10.15.76.210
+public_agent_list:
+- 10.15.76.211
+- 10.15.76.212
+- 10.15.76.213
+resolvers:
+- 8.8.4.4
+- 8.8.8.8 
+ssh_port: 22
+# ssh_user must have passwordless sudo
+ssh_user: core
