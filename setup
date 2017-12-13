@@ -32,3 +32,9 @@ echo "bye"
 set -o nounset -o errexit
 export PATH=/usr/sbin:/usr/bin:$PATH
 echo $(ip addr show ens192 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+
+# add node
+
+mkdir -p /opt/dcos_install_tmp
+tar xf dcos-install.tar -C /opt/dcos_install_tmp
+bash /opt/dcos_install_tmp/dcos_install.sh slave_public
