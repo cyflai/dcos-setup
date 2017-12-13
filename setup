@@ -1,4 +1,6 @@
+#download bootstrap
 
+http://gitlab.hds-cloudconnect.com:8008/dcos_generate_config.sh
 
 #bootstrap machine
 
