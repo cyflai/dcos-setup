@@ -2,7 +2,7 @@
 - hosts: node
   gather_facts: no
   vars:
-    - base_installer: https://gitlab.hds-cloudconnect.com:8443/dcos-install-m210.tar
+    - base_installer: https://gitlab.hds-cloudconnect.com:8443/dcos-installer-m210.tar
     - agent_type: slave_public
   tasks:
  
