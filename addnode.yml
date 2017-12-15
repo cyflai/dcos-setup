@@ -1,0 +1,12 @@
+---
+- hosts: node
+  vars:
+    - base_installer: https://gitlab.hds-cloudconnect.com:8443/dcos-install-m210.tar
+    - agent_type: slave_public
+  tasks:
+ 
+  - name: download node installer
+    raw: "sudo wget -qO- {{ base_installer }} | tar xvz -C /opt/dcos_installer_tmp"
+    
+  - name: configure node
+    raw: "sudo bash /opt/dcos_install_tmp/dcos_install.sh {{ agent_type }}"
