@@ -13,7 +13,7 @@
     raw: "sudo mkdir -p /opt/dcos_install_tmp"
    
   - name: extract installer
-    raw: "sudo tar xf dcos-install.tar -C /opt/dcos_install_tmp"
+    raw: "sudo tar xf dcos-installer.tar -C /opt/dcos_install_tmp"
     
   - name: configure node
     raw: "sudo bash /opt/dcos_install_tmp/dcos_install.sh {{ agent_type }}"
