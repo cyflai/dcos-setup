@@ -16,4 +16,4 @@
     raw: "sudo tar xf dcos-installer.tar -C /opt/dcos_install_tmp"
     
   - name: configure node
-    raw: "sudo bash /opt/dcos_install_tmp/dcos_install.sh {{ agent_type }}"
+    raw: "sudo bash /opt/dcos_install_tmp/server/dcos_install.sh {{ agent_type }}"
