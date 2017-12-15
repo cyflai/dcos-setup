@@ -5,15 +5,24 @@
     - base_installer: https://gitlab.hds-cloudconnect.com:8443/dcos-installer-m210.tar
     - agent_type: slave_public
   tasks:
- 
+
+  - name: check mesos service
+    raw: 'sudo systemctl -t service -a | grep "mesos"'
+    register: mesos
+    ignore_errors: yes
+
   - name: download node installer
     raw: "sudo wget -O dcos-installer.tar {{ base_installer }} --no-check-certificate"
+    when: mesos.stdout == ""
   
   - name: create folder
     raw: "sudo mkdir -p /opt/dcos_install_tmp"
+    when: mesos.stdout == ""
    
   - name: extract installer
     raw: "sudo tar xf dcos-installer.tar -C /opt/dcos_install_tmp"
+    when: mesos.stdout == ""
     
   - name: configure node
     raw: "sudo bash /opt/dcos_install_tmp/dcos_install.sh {{ agent_type }}"
+    when: mesos.stdout == ""
